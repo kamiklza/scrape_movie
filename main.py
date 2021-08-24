@@ -12,10 +12,13 @@ soup = BeautifulSoup(driver.page_source, "html.parser")
 
 movies = soup.find_all(name="div", class_="listicle-item")
 
-for movie in reversed(movies):
+for movie in movies[::-1]:
     title = movie.find("h3").getText()
-    with open("movie_list.txt", "a") as file:
-        file.write(f"{title}\n")
+    print(title)
+# for movie in reversed(movies):
+#     title = movie.find("h3").getText()
+#     with open("movie_list.txt", "a") as file:
+#         file.write(f"{title}\n")
 
 
 
